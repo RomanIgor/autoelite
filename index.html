@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoElite Berlin — Geprüfte Premiumfahrzeuge</title>
+<meta name="description" content="Geprüfte Premiumfahrzeuge in Berlin. 150-Punkte-Check, 12 Monate Garantie, vollständige Servicehistorie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#bestand" onclick="closeMobileMenu()">Fahrzeuge</a>
+  <a href="#warum" onclick="closeMobileMenu()">Über uns</a>
+  <a href="#b2b" onclick="closeMobileMenu()">Für Händler</a>
+  <a href="#kontakt" onclick="closeMobileMenu()">Kontakt</a>
+  <button class="m-cta" onclick="closeMobileMenu();scrollToKontakt()">Jetzt anfragen</button>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Auto<span>Elite</span></div>
+  <ul class="nav-links">
+    <li><a href="#bestand">Fahrzeuge</a></li>
+    <li><a href="#warum">Über uns</a></li>
+    <li><a href="#b2b">Für Händler</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-tel">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+      +49 30 123 456 78
+    </div>
+    <!-- THEME TOGGLE -->
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Theme wechseln">
+      <span class="theme-icon-dark">🌙</span>
+      <span class="theme-icon-light">☀️</span>
+    </button>
+    <button class="btn-nav" onclick="scrollToKontakt()">Anfragen</button>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="theme-toggle theme-toggle-mobile" id="themeToggleMobile" onclick="toggleTheme()" aria-label="Theme wechseln">
+      <span class="theme-icon-dark">🌙</span>
+      <span class="theme-icon-light">☀️</span>
+    </button>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-left">
+    <div class="hero-badge"><div class="hero-badge-dot"></div>Berlin's #1 Premium Autohaus</div>
+    <h1 class="hero-h1">Ihr nächstes<br>Fahrzeug.<br><em>Ihr Vertrauen.</em></h1>
+    <p class="hero-sub">Geprüfte Premiumfahrzeuge mit vollständiger Servicehistorie — transparent, fair und mit 12 Monaten Gewährleistung.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('bestand').scrollIntoView({behavior:'smooth'})">Fahrzeuge entdecken →</button>
+      <button class="btn-outline" onclick="scrollToKontakt()">Kostenlos beraten lassen</button>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-avatars">
+        <span>😊</span><span>🙂</span><span>😄</span><span>😎</span>
+      </div>
+      <div class="trust-text">
+        <strong>★★★★★ 4.9/5 Bewertung</strong>
+        Über 320 zufriedene Kunden in Berlin
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img-main" id="heroImg"
+      src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1200&q=85&fit=crop"
+      alt="Premium BMW" onload="this.classList.add('loaded')">
+    <div class="hero-overlay"></div>
+    <div class="hero-car-info">
+      <div class="car-name">BMW 5er M Sport</div>
+      <div class="car-price">52.900 €</div>
+      <div class="car-km">28.000 km · 2022 · Diesel</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-icon">🔍</div><div><div class="trust-label">Geprüft</div><div class="trust-value">150-Punkte-Check</div></div></div>
+  <div class="trust-item"><div class="trust-icon">🛡️</div><div><div class="trust-label">Garantie</div><div class="trust-value">12 Monate inkl.</div></div></div>
+  <div class="trust-item"><div class="trust-icon">📋</div><div><div class="trust-label">Transparent</div><div class="trust-value">Vollst. Servicehistorie</div></div></div>
+  <div class="trust-item"><div class="trust-icon">🤝</div><div><div class="trust-label">Finanzierung</div><div class="trust-value">Ab 0% möglich</div></div></div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-section" id="bestand">
+  <div class="search-box">
+    <div class="filter-col"><label>Marke</label><select id="fMarke"><option value="">Alle Marken</option><option>BMW</option><option>Mercedes</option><option>Audi</option><option>Porsche</option><option>Volkswagen</option></select></div>
+    <div class="filter-col"><label>Baujahr ab</label><input type="number" id="fJahr" placeholder="z.B. 2020"></div>
+    <div class="filter-col"><label>Max. Preis (€)</label><input type="number" id="fPreis" placeholder="z.B. 80000"></div>
+    <div class="filter-col"><label>Kraftstoff</label><select id="fKraft"><option value="">Alle</option><option>Benzin</option><option>Diesel</option><option>Hybrid</option><option>Elektro</option></select></div>
+    <div class="filter-col"><label>Getriebe</label><select id="fGetriebe"><option value="">Alle</option><option>Automatik</option><option>Schaltgetriebe</option></select></div>
+    <button class="btn-search" onclick="doFilter()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>Suchen
+    </button>
+  </div>
+</div>
+<div class="results-info"><div class="results-count"><strong id="carCountNum">6</strong> Fahrzeuge verfügbar</div></div>
+<div class="listings"><div class="cars-grid" id="carsGrid"></div></div>
+
+<!-- WHY US -->
+<section class="why-section" id="warum">
+  <div class="why-inner">
+    <div class="why-left">
+      <div class="tag">Warum AutoElite</div>
+      <h2 class="section-h2">Vertrauen, das<br>man <em>spürt.</em></h2>
+      <p class="section-p">Wir wissen, dass der Kauf eines Fahrzeugs eine große Entscheidung ist. Deshalb setzen wir auf maximale Transparenz — von der ersten Anfrage bis zur Übergabe.</p>
+      <div class="why-steps">
+        <div class="why-step"><div class="step-num">01</div><div><div class="step-title">150-Punkte-Fahrzeugcheck</div><div class="step-desc">Jedes Fahrzeug wird von zertifizierten Technikern vollständig geprüft — Motor, Karosserie, Elektronik, Sicherheit.</div></div></div>
+        <div class="why-step"><div class="step-num">02</div><div><div class="step-title">Vollständige Servicehistorie</div><div class="step-desc">Sie erhalten alle Belege, Scheckheft und die komplette Fahrzeuggeschichte — keine Überraschungen.</div></div></div>
+        <div class="why-step"><div class="step-num">03</div><div><div class="step-title">12 Monate Gewährleistung</div><div class="step-desc">Auf alle unsere Fahrzeuge geben wir 12 Monate Gewährleistung. Ihr Kauf ist abgesichert.</div></div></div>
+      </div>
+    </div>
+    <div class="why-right">
+      <div class="why-card"><div class="why-icon">⭐</div><div class="why-card-num">4.9/5</div><div class="why-card-title">Google-Bewertung</div><div class="why-card-text">Über 320 verifizierte Kundenbewertungen sprechen für sich.</div></div>
+      <div class="why-card"><div class="why-icon">🚗</div><div class="why-card-num">500+</div><div class="why-card-title">Fahrzeuge verkauft</div><div class="why-card-text">Seit 2015 vermitteln wir Premium-Fahrzeuge in Berlin.</div></div>
+      <div class="why-card"><div class="why-icon">💰</div><div class="why-card-num">0%</div><div class="why-card-title">Finanzierung ab 0%</div><div class="why-card-text">Attraktive Finanzierungsangebote für alle Budgets.</div></div>
+      <div class="why-card"><div class="why-icon">📞</div><div class="why-card-num">24h</div><div class="why-card-title">Antwortgarantie</div><div class="why-card-text">Ihre Anfrage wird innerhalb von 24 Stunden beantwortet.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="tag">Kundenstimmen</div>
+  <h2 class="section-h2">Was unsere <em>Kunden sagen</em></h2>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="testi-quote">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">Absolut professionelle Abwicklung. Der BMW war genau wie beschrieben — vollständige Servicehistorie, top Zustand. Ich werde definitiv wiederkommen.</p><div class="testi-author"><div class="testi-avatar">👨</div><div><div class="testi-name">Markus K.</div><div class="testi-car">BMW 5er 530d</div></div></div></div>
+    <div class="testi-card"><div class="testi-quote">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">Sehr ehrliche Beratung ohne Druck. Man merkt, dass hier Qualität vor Quantität geht. Der Porsche war in makellosem Zustand. Sehr empfehlenswert!</p><div class="testi-author"><div class="testi-avatar">👩</div><div><div class="testi-name">Sandra M.</div><div class="testi-car">Porsche Macan GTS</div></div></div></div>
+    <div class="testi-card"><div class="testi-quote">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">Schnelle Reaktion, faire Preise und kein Kleingedrucktes. Die 12-monatige Garantie hat mich überzeugt. Kaufe hier ein zweites Mal!</p><div class="testi-author"><div class="testi-avatar">👨‍💼</div><div><div class="testi-name">Thomas B.</div><div class="testi-car">Mercedes GLE 400d</div></div></div></div>
+  </div>
+</section>
+
+<!-- B2B SECTION -->
+<section class="b2b-section" id="b2b">
+  <div class="b2b-inner">
+    <div class="b2b-left">
+      <div class="tag">Für Unternehmen & Händler</div>
+      <h2 class="section-h2">Sie haben Fahrzeuge<br>zu <em>verkaufen?</em></h2>
+      <p class="section-p">Wir arbeiten mit Leasinggesellschaften, Fuhrparkbetreibern, Autohäusern und Privatunternehmen zusammen. Schnelle Bewertung, transparente Abwicklung, faire Konditionen.</p>
+      <div class="b2b-benefits">
+        <div class="b2b-benefit"><div class="b2b-benefit-icon">⚡</div><div><div class="b2b-benefit-title">Schnelle Bewertung</div><div class="b2b-benefit-desc">Innerhalb von 24h erhalten Sie ein verbindliches Angebot für Ihr Fahrzeug oder Ihre Flotte.</div></div></div>
+        <div class="b2b-benefit"><div class="b2b-benefit-icon">📦</div><div><div class="b2b-benefit-title">Flottenankauf</div><div class="b2b-benefit-desc">Wir übernehmen auch größere Fahrzeugbestände — ab 1 bis zu 50+ Fahrzeuge gleichzeitig.</div></div></div>
+        <div class="b2b-benefit"><div class="b2b-benefit-icon">📄</div><div><div class="b2b-benefit-title">Einfache Abwicklung</div><div class="b2b-benefit-desc">Wir kümmern uns um die gesamte Dokumentation. Für Sie nur minimaler Aufwand.</div></div></div>
+        <div class="b2b-benefit"><div class="b2b-benefit-icon">🏦</div><div><div class="b2b-benefit-title">Sofortige Zahlung</div><div class="b2b-benefit-desc">Kein Warten — Zahlung direkt nach Vertragsunterzeichnung und Fahrzeugübergabe.</div></div></div>
+      </div>
+    </div>
+    <div class="b2b-right">
+      <div class="b2b-form-wrap">
+        <div class="b2b-form-header">
+          <div class="b2b-form-icon">🏢</div>
+          <div>
+            <div class="b2b-form-title">Kostenlose Fahrzeugbewertung</div>
+            <div class="b2b-form-sub">Für Unternehmen & Händler</div>
+          </div>
+        </div>
+        <form class="b2b-form" id="b2bForm" onsubmit="submitB2B(event)">
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Firmenname</label><input type="text" class="form-input" id="b2bFirma" placeholder="Musterfirma GmbH" required></div>
+            <div class="form-group"><label class="form-label">Ansprechpartner</label><input type="text" class="form-input" id="b2bName" placeholder="Max Mustermann" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Telefon</label><input type="tel" class="form-input" id="b2bTel" placeholder="+49 30 xxxxxxx" required></div>
+            <div class="form-group"><label class="form-label">E-Mail</label><input type="email" class="form-input" id="b2bEmail" placeholder="info@firma.de" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Anzahl Fahrzeuge</label><select class="form-select" id="b2bAnzahl"><option>1–3 Fahrzeuge</option><option>4–10 Fahrzeuge</option><option>11–30 Fahrzeuge</option><option>30+ Fahrzeuge</option></select></div>
+            <div class="form-group"><label class="form-label">Fahrzeugtypen</label><select class="form-select" id="b2bTyp"><option>PKW</option><option>SUV / Geländewagen</option><option>Transporter / LKW</option><option>Gemischte Flotte</option></select></div>
+          </div>
+          <div class="form-group"><label class="form-label">Nachricht / Details</label><textarea class="form-textarea" id="b2bNachricht" placeholder="Marken, Modelle, Baujahre, Zustand — je mehr Details, desto schneller das Angebot..."></textarea></div>
+          <button type="submit" class="form-submit b2b-submit">
+            Kostenlose Bewertung anfordern
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <p class="form-note">🔒 Unverbindlich & kostenlos — wir melden uns innerhalb von 24h.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="kontakt">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="tag">Kontakt aufnehmen</div>
+      <h2 class="section-h2">Bereit für<br>Ihr <em>Traumauto?</em></h2>
+      <p class="section-p">Unser Team berät Sie kostenlos und unverbindlich. Probefahrten sind jederzeit möglich.</p>
+      <div class="contact-items">
+        <div class="contact-item"><div class="c-icon">📞</div><div><div class="c-label">Telefon</div><div class="c-val">+49 30 123 456 78</div></div></div>
+        <div class="contact-item"><div class="c-icon">✉️</div><div><div class="c-label">E-Mail</div><div class="c-val">info@autoelite-berlin.de</div></div></div>
+        <div class="contact-item"><div class="c-icon">📍</div><div><div class="c-label">Adresse</div><div class="c-val">Kurfürstendamm 42, 10719 Berlin</div></div></div>
+        <div class="contact-item"><div class="c-icon">🕐</div><div><div class="c-label">Öffnungszeiten</div><div class="c-val">Mo–Fr 09–19 Uhr · Sa 10–16 Uhr</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="form-title">Jetzt unverbindlich <em style="font-style:italic;color:var(--gold)">anfragen</em></div>
+      <form class="contact-form" id="contactForm" onsubmit="submitContact(event)">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Vorname</label><input type="text" class="form-input" id="cVorname" placeholder="Max" required></div>
+          <div class="form-group"><label class="form-label">Nachname</label><input type="text" class="form-input" id="cNachname" placeholder="Mustermann" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Telefon</label><input type="tel" class="form-input" id="cTel" placeholder="+49 1xx xxxxxxx" required></div>
+          <div class="form-group"><label class="form-label">E-Mail</label><input type="email" class="form-input" id="cEmail" placeholder="max@beispiel.de"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Fahrzeug von Interesse</label><select class="form-select" id="formVehicle"><option value="">— Fahrzeug auswählen —</option></select></div>
+        <div class="form-group"><label class="form-label">Ihre Nachricht</label><textarea class="form-textarea" id="cNachricht" placeholder="Fragen, gewünschter Termin für Probefahrt..."></textarea></div>
+        <button type="submit" class="form-submit">
+          Anfrage kostenlos absenden
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p class="form-note">🔒 Ihre Daten sind sicher. Wir geben sie nicht weiter.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ADMIN -->
+<section class="admin-section" id="admin">
+  <div class="admin-header">
+    <div><div class="tag" style="margin-bottom:8px">Verwaltung</div><h2 class="admin-title">Bestand <em>verwalten</em></h2></div>
+    <button class="btn-primary" onclick="toggleAddForm()">+ Fahrzeug hinzufügen</button>
+  </div>
+  <div class="add-form" id="addForm">
+    <div class="add-form-title">Neues Fahrzeug eintragen</div>
+    <div class="add-grid">
+      <div class="form-group"><label class="form-label">Marke</label><input type="text" class="form-input" id="aMarke" placeholder="BMW"></div>
+      <div class="form-group"><label class="form-label">Modell</label><input type="text" class="form-input" id="aModell" placeholder="5er 530d"></div>
+      <div class="form-group"><label class="form-label">Baujahr</label><input type="number" class="form-input" id="aJahr" placeholder="2022"></div>
+      <div class="form-group"><label class="form-label">Kilometerstand</label><input type="number" class="form-input" id="aKm" placeholder="25000"></div>
+      <div class="form-group"><label class="form-label">Kraftstoff</label><select class="form-select" id="aKraft"><option>Benzin</option><option>Diesel</option><option>Hybrid</option><option>Elektro</option></select></div>
+      <div class="form-group"><label class="form-label">Getriebe</label><select class="form-select" id="aGetriebe"><option>Automatik</option><option>Schaltgetriebe</option></select></div>
+      <div class="form-group"><label class="form-label">Leistung (PS)</label><input type="number" class="form-input" id="aPS" placeholder="190"></div>
+      <div class="form-group"><label class="form-label">Preis (€)</label><input type="number" class="form-input" id="aPreis" placeholder="35000"></div>
+      <div class="form-group"><label class="form-label">Status</label><select class="form-select" id="aStatus"><option>Verfügbar</option><option>Reserviert</option><option>Verkauft</option></select></div>
+    </div>
+    <div class="form-group" style="margin-bottom:18px"><label class="form-label">Beschreibung</label><textarea class="form-textarea" id="aDesc" placeholder="Ausstattung, Besonderheiten..."></textarea></div>
+    <div class="form-group" style="margin-bottom:24px"><label class="form-label">Foto-URL</label><input type="text" class="form-input" id="aImg" placeholder="https://..."></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <button class="btn-primary" onclick="addCar()">Speichern</button>
+      <button class="btn-outline" onclick="toggleAddForm()">Abbrechen</button>
+    </div>
+  </div>
+  <div class="admin-table-wrap">
+    <table>
+      <thead><tr><th>Fahrzeug</th><th>Baujahr</th><th>Kilometerstand</th><th>Kraftstoff</th><th>Preis</th><th>Status</th><th>Aktionen</th></tr></thead>
+      <tbody id="adminBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><div class="logo">Auto<span>Elite</span></div><p>Berlin's vertrauenswürdiger Partner für geprüfte Premiumfahrzeuge. Seit 2015 stehen wir für Qualität, Transparenz und exzellenten Service.</p></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="#bestand">Fahrzeuge</a></li><li><a href="#warum">Über uns</a></li><li><a href="#b2b">Für Händler</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
+    <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="tel:+493012345678">+49 30 123 456 78</a></li><li><a href="#">info@autoelite-berlin.de</a></li><li><a href="#">Kurfürstendamm 42, Berlin</a></li><li><a href="#">Mo–Sa, 09–19 Uhr</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 AutoElite Berlin. Alle Rechte vorbehalten.</div>
+    <div class="footer-links-b"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOuter(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-img-wrap"><img id="modalImg" src="" alt=""><div class="modal-img-overlay"></div></div>
+    <div class="modal-body">
+      <div class="modal-top">
+        <div><div class="modal-make" id="mMarke"></div><div class="modal-model" id="mModell"></div></div>
+        <div><div class="modal-price-big" id="mPreis"></div><div class="modal-price-note">inkl. 12 Mon. Gewährleistung</div></div>
+      </div>
+      <div class="modal-specs" id="mSpecs"></div>
+      <p class="modal-desc" id="mDesc"></p>
+      <div class="modal-actions">
+        <button class="btn-modal-primary" onclick="closeModal();scrollToKontakt()">Jetzt anfragen — Kostenlos & unverbindlich</button>
+        <button class="btn-modal-outline" onclick="closeModal()">Zurück zur Übersicht</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span class="toast-icon">✓</span><span id="toastMsg"></span></div>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
