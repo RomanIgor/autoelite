@@ -408,3 +408,104 @@ window.addEventListener('load', () => {
   renderGrid(shown);
   renderAdmin();
 });
+
+// ── CALCULATOR LOGIC ─────────────────────────────────────────
+let calcData = { marke: null, jahr: 0, km: 0, kraft: 1.0, condition: 1.0, service: 1.0 };
+
+function calcStep2() {
+  const marke = document.getElementById('calcMarke');
+  const jahr  = document.getElementById('calcJahr');
+  const km    = document.getElementById('calcKm');
+  const kraft = document.getElementById('calcKraft');
+
+  if (!marke.value || !jahr.value || !km.value || !kraft.value) {
+    showToast('⚠ Bitte alle Felder ausfüllen.');
+    return;
+  }
+
+  calcData.marke = marke.options[marke.selectedIndex].value;
+  calcData.jahr  = parseInt(jahr.value)  || 2;
+  calcData.km    = parseInt(km.value)    || 3;
+  calcData.kraft = parseFloat(kraft.value) || 1.0;
+
+  document.getElementById('calcStep1').style.display = 'none';
+  document.getElementById('calcStep2').style.display = 'block';
+  document.getElementById('calcProgressBar').style.width = '66%';
+}
+
+function calcBack() {
+  document.getElementById('calcStep2').style.display = 'none';
+  document.getElementById('calcStep1').style.display = 'block';
+  document.getElementById('calcProgressBar').style.width = '33%';
+}
+
+function selectCondition(el, val) {
+  document.querySelectorAll('.cond-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  calcData.condition = parseFloat(val);
+}
+
+function calcStep3() {
+  const serviceVal = document.querySelector('input[name="service"]:checked');
+  calcData.service = serviceVal ? parseFloat(serviceVal.value) : 1.0;
+  if (!calcData.condition) { showToast('⚠ Bitte Fahrzeugzustand auswählen.'); return; }
+
+  // Base prices by brand tier
+  const base = calcData.marke === 'premium' ? 28000 : 14000;
+
+  // Year multiplier: newer = higher
+  const yearMult = 0.7 + (calcData.jahr * 0.1);
+
+  // Km multiplier
+  const kmMult = 0.6 + (calcData.km * 0.08);
+
+  const raw = base * yearMult * kmMult * calcData.kraft * calcData.condition * calcData.service;
+  const low  = Math.round(raw * 0.92 / 500) * 500;
+  const high = Math.round(raw * 1.08 / 500) * 500;
+
+  document.getElementById('priceRange').textContent =
+    low.toLocaleString('de-DE') + ' € – ' + high.toLocaleString('de-DE') + ' €';
+
+  document.getElementById('calcStep2').style.display = 'none';
+  document.getElementById('calcStep3').style.display = 'block';
+  document.getElementById('calcProgressBar').style.width = '100%';
+}
+
+function submitCalc() {
+  const name = document.getElementById('calcVorname').value.trim();
+  const tel  = document.getElementById('calcTel').value.trim();
+  if (!name || !tel) { showToast('⚠ Bitte Name und Telefon angeben.'); return; }
+  showToast('✓ Anfrage gesendet! Wir rufen Sie innerhalb von 24h an.');
+  restartCalc();
+}
+
+function restartCalc() {
+  calcData = { marke: null, jahr: 0, km: 0, kraft: 1.0, condition: 1.0, service: 1.0 };
+  document.getElementById('calcStep3').style.display = 'none';
+  document.getElementById('calcStep1').style.display = 'block';
+  document.getElementById('calcProgressBar').style.width = '33%';
+  document.getElementById('calcVorname').value = '';
+  document.getElementById('calcTel').value = '';
+  document.querySelectorAll('.cond-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('input[name="service"]')[1].checked = true;
+  ['calcMarke','calcJahr','calcKm','calcKraft'].forEach(id => {
+    document.getElementById(id).selectedIndex = 0;
+  });
+}
+
+// ── LIVE COUNTER ─────────────────────────────────────────────
+function animateLiveCounter() {
+  const el = document.getElementById('liveCounter');
+  if (!el) return;
+  const base = 3;
+  setInterval(() => {
+    const rand = base + Math.floor(Math.random() * 3);
+    el.textContent = rand;
+  }, 8000);
+}
+
+// Override init to also start live counter
+const _origLoad = window.onload;
+window.addEventListener('load', () => {
+  animateLiveCounter();
+});
